@@ -13,10 +13,7 @@ class _HomePagesState extends State<HomePages> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: Icon(
-          Icons.menu,
-          color: Colors.grey[700],
-        ),
+        leading: Icon(Icons.menu, color: Colors.grey[800]),
       ),
     );
   }
