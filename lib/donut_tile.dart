@@ -3,86 +3,95 @@ import 'package:flutter/material.dart';
 class DonutTile extends StatelessWidget {
   final String donutFlavor;
   final String donutPrice;
-  final dynamic
-      donutColor; // dynamic porque será de tipo Color y también usará []
+  final dynamic donutColor;
   final String imageName;
-
   final double borderRadius = 24;
 
-  const DonutTile({
-    super.key,
-    required this.donutFlavor,
-    required this.donutPrice,
-    this.donutColor,
-    required this.imageName,
-  });
+  const DonutTile(
+      {super.key,
+      required this.donutFlavor,
+      required this.donutPrice,
+      this.donutColor,
+      required this.imageName});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(12),
       child: Container(
+        height: 250, // Ajusta la altura para evitar desbordamientos
         decoration: BoxDecoration(
-          color: donutColor[50], // Aquí se usa el dynamic
-          borderRadius: BorderRadius.circular(borderRadius),
-        ),
+            color: donutColor[50],
+            borderRadius: BorderRadius.circular(borderRadius)),
         child: Column(
           children: [
-            // Precio de la dona
+            //Donut price
             Row(
-              // Alinear a la derecha
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: donutColor[100],
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(borderRadius),
-                      bottomLeft: Radius.circular(borderRadius),
-                    ),
-                  ),
+                      color: donutColor[100],
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(borderRadius),
+                        bottomLeft: Radius.circular(borderRadius),
+                      )),
                   padding:
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
                   child: Text(
                     '\$$donutPrice',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: donutColor[800],
-                    ),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: donutColor[800]),
                   ),
                 )
               ],
             ),
-            // Imagen de la dona
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-              child: Image.asset(imageName),
-            ),
-            // Texto del sabor de la dona
-            Padding(
-              padding:
-                  const EdgeInsets.only(bottom: 4), // Un padding más pequeño
-              child: Text(
-                donutFlavor,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight:
-                      FontWeight.bold, // Puedes cambiar el color si lo deseas
-                ),
+            //Donut picture
+            Expanded(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                child: Image.asset(imageName, fit: BoxFit.contain),
               ),
             ),
-            // Texto "Dunkin's" debajo del sabor
+            //Donut flavor text
             Padding(
-              padding: const EdgeInsets.only(
-                  bottom: 12), // Opcionalmente agrega espacio extra si deseas
-              child: Text(
-                "Dunkin's",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[
-                      600], // Un color gris para darle un toque secundario
-                ),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 4),
+              child: Text(donutFlavor,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: donutColor[1000])),
+            ),
+            const SizedBox(
+              height: 4,
+            ),
+            const Text('Dunkin\'s'),
+            //Love icon + add button
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(
+                    Icons.favorite,
+                    color: Colors.pink[400],
+                  ),
+                  // Botón más pequeño alineado a la derecha
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 8,
+                        horizontal: 20,
+                      ),
+                      minimumSize: Size(60, 30), // Tamaño más pequeño
+                    ),
+                    child: const Text('ADD'),
+                  ),
+                ],
               ),
             ),
           ],
