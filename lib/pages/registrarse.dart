@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:reto1_donut_app_marco_avila/pages/login_page.dart';
 
 class Registrate extends StatefulWidget {
@@ -9,6 +10,53 @@ class Registrate extends StatefulWidget {
 }
 
 class _RegistrateState extends State<Registrate> {
+  final TextEditingController _nombreController = TextEditingController();
+  final TextEditingController _correoController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmarPasswordController = TextEditingController();
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<void> _registrar() async {
+    if (_passwordController.text != _confirmarPasswordController.text) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Las contraseñas no coinciden')),
+      );
+      return;
+    }
+
+    try {
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+        email: _correoController.text,
+        password: _passwordController.text,
+      );
+
+      // Verificar el correo electrónico
+      await userCredential.user?.sendEmailVerification();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Se ha enviado un correo de verificación')),
+      );
+
+      // Regresar a la página de login
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+      );
+    } on FirebaseAuthException catch (e) {
+      String message;
+      if (e.code == 'weak-password') {
+        message = 'La contraseña es demasiado débil.';
+      } else if (e.code == 'email-already-in-use') {
+        message = 'El correo electrónico ya está en uso.';
+      } else {
+        message = 'Error: ${e.message}';
+      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,6 +117,7 @@ class _RegistrateState extends State<Registrate> {
                               color: Colors.grey.withOpacity(.2),
                             ),
                             child: TextFormField(
+                              controller: _nombreController,
                               decoration: const InputDecoration(
                                 icon: Icon(Icons.person),
                                 border: InputBorder.none,
@@ -87,6 +136,7 @@ class _RegistrateState extends State<Registrate> {
                               color: Colors.grey.withOpacity(.2),
                             ),
                             child: TextFormField(
+                              controller: _correoController,
                               decoration: const InputDecoration(
                                 icon: Icon(Icons.email),
                                 border: InputBorder.none,
@@ -105,6 +155,7 @@ class _RegistrateState extends State<Registrate> {
                               color: Colors.grey.withOpacity(.2),
                             ),
                             child: TextFormField(
+                              controller: _passwordController,
                               obscureText: true,
                               decoration: const InputDecoration(
                                 icon: Icon(Icons.lock),
@@ -124,6 +175,7 @@ class _RegistrateState extends State<Registrate> {
                               color: Colors.grey.withOpacity(.2),
                             ),
                             child: TextFormField(
+                              controller: _confirmarPasswordController,
                               obscureText: true,
                               decoration: const InputDecoration(
                                 icon: Icon(Icons.lock),
@@ -145,7 +197,7 @@ class _RegistrateState extends State<Registrate> {
                                 borderRadius: BorderRadius.circular(90.0),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: _registrar,
                             child: const Text(
                               'Registrarse',
                               style: TextStyle(

@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:reto1_donut_app_marco_avila/pages/registrarse.dart';
-
 import 'home_pages.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,17 +13,38 @@ class LoginPage extends StatefulWidget {
 class LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void _login() {
-    if (_usernameController.text == 'user' &&
-        _passwordController.text == '123') {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
+  void _login() async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: _usernameController.text,
+        password: _passwordController.text,
       );
-    } else {
+
+      // Verificar si el correo está verificado
+      if (userCredential.user?.emailVerified == true) {
+        // Navegar a HomePage si la autenticación es exitosa
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Por favor verifica tu correo electrónico')),
+        );
+      }
+    } on FirebaseAuthException catch (e) {
+      // Manejar errores de autenticación
+      String message = 'Error desconocido';
+      if (e.code == 'user-not-found') {
+        message = 'No hay ningún usuario registrado con este correo.';
+      } else if (e.code == 'wrong-password') {
+        message = 'Contraseña incorrecta.';
+      }
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Usuario o contraseña incorrectos')),
+        SnackBar(content: Text(message)),
       );
     }
   }
@@ -104,7 +124,7 @@ class LoginPageState extends State<LoginPage> {
                               decoration: const InputDecoration(
                                 icon: Icon(Icons.person),
                                 border: InputBorder.none,
-                                hintText: "Usuario",
+                                hintText: "Correo Electrónico",
                               ),
                             ),
                           ),

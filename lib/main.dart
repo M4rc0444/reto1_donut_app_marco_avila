@@ -4,9 +4,15 @@ import 'package:reto1_donut_app_marco_avila/firebase_options.dart';
 import 'pages/login_page.dart';
 
 Future<void> main() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  WidgetsFlutterBinding.ensureInitialized();
+
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  } catch (e) {
+    print("Error inicializando Firebase: $e");
+  }
 
   runApp(const MainApp());
 }
