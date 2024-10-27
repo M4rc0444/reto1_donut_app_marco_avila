@@ -6,6 +6,8 @@ import 'package:reto1_donut_app_marco_avila/tab/pizza_tab.dart';
 import 'package:reto1_donut_app_marco_avila/tab/smoothie_tab.dart';
 import 'package:reto1_donut_app_marco_avila/pages/login_page.dart';
 
+//COMENTARIO DE PRUEBA
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
