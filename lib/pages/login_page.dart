@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:reto1_donut_app_marco_avila/pages/registrarse.dart';
 import 'home_pages.dart';
 
+//hola
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
