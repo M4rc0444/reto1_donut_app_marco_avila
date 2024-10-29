@@ -48,6 +48,20 @@ class LoginPageState extends State<LoginPage> {
       );
     }
   }
+  // Función para iniciar sesión de manera anónima
+  void _loginAnonymously() async {
+    try {
+      await _auth.signInAnonymously();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Error: ${e.message}")),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
