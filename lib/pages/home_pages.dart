@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:reto1_donut_app_marco_avila/pages/login_page.dart';
+import 'package:reto1_donut_app_marco_avila/pages/updatepasswordpage.dart';
 import 'package:reto1_donut_app_marco_avila/tab/burger_tab.dart';
 import 'package:reto1_donut_app_marco_avila/tab/donut_tab.dart';
 import 'package:reto1_donut_app_marco_avila/tab/pancake_tab.dart';
 import 'package:reto1_donut_app_marco_avila/tab/pizza_tab.dart';
 import 'package:reto1_donut_app_marco_avila/tab/smoothie_tab.dart';
-import 'package:reto1_donut_app_marco_avila/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String? profileImageUrl; // Declara profileImageUrl
+
+  const HomePage({Key? key, this.profileImageUrl})
+      : super(key: key); // Constructor
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -15,39 +20,87 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  // Lista de tabs
-  List<Tab> myTabs = [
-    const Tab(
-      icon: ImageIcon(AssetImage('lib/icons/donut.png')),
-      text: 'Donuts',
-    ),
-    const Tab(
-      icon: ImageIcon(AssetImage('lib/icons/burger.png')),
-      text: 'Burgers',
-    ),
-    const Tab(
-      icon: ImageIcon(AssetImage('lib/icons/smoothie.png')),
-      text: 'Smoothies',
-    ),
-    const Tab(
-      icon: ImageIcon(AssetImage('lib/icons/pancakes.png')),
-      text: 'Pancakes',
-    ),
-    const Tab(
-      icon: ImageIcon(AssetImage('lib/icons/pizza.png')),
-      text: 'Pizzas',
-    ),
-  ];
-
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   int itemCount = 0;
   double totalAmount = 0.0;
+
+  List<Tab> myTabs = [
+    const Tab(
+        icon: ImageIcon(AssetImage('lib/icons/donut.png')), text: 'Donuts'),
+    const Tab(
+        icon: ImageIcon(AssetImage('lib/icons/burger.png')), text: 'Burgers'),
+    const Tab(
+        icon: ImageIcon(AssetImage('lib/icons/smoothie.png')),
+        text: 'Smoothies'),
+    const Tab(
+        icon: ImageIcon(AssetImage('lib/icons/pancakes.png')),
+        text: 'Pancakes'),
+    const Tab(
+        icon: ImageIcon(AssetImage('lib/icons/pizza.png')), text: 'Pizzas'),
+  ];
 
   void addItem(double price) {
     setState(() {
       itemCount++;
       totalAmount += price;
     });
+  }
+
+  void _showProfileMenu() {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext context) {
+        return Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                leading: widget.profileImageUrl != null // Verifica si hay URL
+                    ? CircleAvatar(
+                        backgroundImage:
+                            NetworkImage(widget.profileImageUrl!), // Usa la URL
+                      )
+                    : const Icon(Icons.person,
+                        color: Colors.pink), // Icono por defecto
+                title: const Text('Perfil'),
+                subtitle: Text(_auth.currentUser?.email ?? 'Invitado'),
+              ),
+              ListTile(
+                leading: const Icon(Icons.lock, color: Colors.pink),
+                title: const Text('Actualizar Contraseña'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UpdatePasswordPage()),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.logout, color: Colors.pink),
+                title: const Text('Cerrar Sesión'),
+                onTap: () async {
+                  await _auth.signOut();
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -72,12 +125,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(right: 24.0),
               child: IconButton(
                 icon: Icon(Icons.person, color: Colors.grey[800], size: 36),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
-                  );
-                },
+                onPressed: _showProfileMenu,
               ),
             ),
           ],
@@ -87,44 +135,28 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.zero,
             children: <Widget>[
               const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.purple,
-                ),
+                decoration: BoxDecoration(color: Colors.purple),
                 child: Text(
                   'Menú',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
+                  style: TextStyle(color: Colors.white, fontSize: 24),
                 ),
               ),
               ListTile(
                 leading: const Icon(Icons.arrow_back),
                 title: const Text('Regresar'),
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
+                onTap: () => Navigator.of(context).pop(),
               ),
-              ListTile(
-                leading: const Icon(Icons.home),
-                title: const Text('Inicio'),
-                onTap: () {
-                  // Acción para "Inicio"
-                },
+              const ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Inicio'),
               ),
-              ListTile(
-                leading: const Icon(Icons.shopping_cart),
-                title: const Text('Carrito'),
-                onTap: () {
-                  // Acción para "Carrito"
-                },
+              const ListTile(
+                leading: Icon(Icons.shopping_cart),
+                title: Text('Carrito'),
               ),
-              ListTile(
-                leading: const Icon(Icons.info),
-                title: const Text('Información'),
-                onTap: () {
-                  // Acción para "Información"
-                },
+              const ListTile(
+                leading: Icon(Icons.info),
+                title: Text('Información'),
               ),
             ],
           ),
@@ -188,9 +220,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       const Text(
                         'Delivery Charges Included',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
+                        style: TextStyle(color: Colors.grey),
                       ),
                     ],
                   ),
