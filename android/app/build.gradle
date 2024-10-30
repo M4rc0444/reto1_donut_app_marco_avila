@@ -10,9 +10,10 @@ plugins {
 
 
 android {
-    namespace = "com.example.reto1_donut_app_marco_avila"
+    namespace = "com.example.donutapp"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
+    minSdkVersion 24
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -25,7 +26,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.reto1_donut_app_marco_avila"
+        applicationId = "com.example.donutapp"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

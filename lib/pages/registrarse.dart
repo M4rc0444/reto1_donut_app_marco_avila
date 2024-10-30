@@ -13,7 +13,8 @@ class _RegistrateState extends State<Registrate> {
   final TextEditingController _nombreController = TextEditingController();
   final TextEditingController _correoController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmarPasswordController = TextEditingController();
+  final TextEditingController _confirmarPasswordController =
+      TextEditingController();
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -26,7 +27,8 @@ class _RegistrateState extends State<Registrate> {
     }
 
     try {
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
         email: _correoController.text,
         password: _passwordController.text,
       );
@@ -34,7 +36,8 @@ class _RegistrateState extends State<Registrate> {
       // Verificar el correo electrónico
       await userCredential.user?.sendEmailVerification();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Se ha enviado un correo de verificación')),
+        const SnackBar(
+            content: Text('Se ha enviado un correo de verificación')),
       );
 
       // Regresar a la página de login
@@ -42,6 +45,7 @@ class _RegistrateState extends State<Registrate> {
         context,
         MaterialPageRoute(builder: (context) => const LoginPage()),
       );
+      //parte del
     } on FirebaseAuthException catch (e) {
       String message;
       if (e.code == 'weak-password') {
