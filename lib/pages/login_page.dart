@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:reto1_donut_app_marco_avila/pages/forgot_password_page.dart';
 import 'package:reto1_donut_app_marco_avila/pages/registrarse.dart';
 import 'home_pages.dart';
 
@@ -57,9 +59,7 @@ class LoginPageState extends State<LoginPage> {
         password: _passwordController.text,
       );
 
-      // Verificar si el correo está verificado
       if (userCredential.user?.emailVerified == true) {
-        // Navegar a HomePage si la autenticación es exitosa
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
@@ -71,7 +71,6 @@ class LoginPageState extends State<LoginPage> {
         );
       }
     } on FirebaseAuthException catch (e) {
-      // Manejar errores de autenticación
       String message = 'Error desconocido';
       if (e.code == 'user-not-found') {
         message = 'No hay ningún usuario registrado con este correo.';
@@ -80,6 +79,21 @@ class LoginPageState extends State<LoginPage> {
       }
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(message)),
+      );
+    }
+  }
+
+  // Función para iniciar sesión de manera anónima
+  void _loginAnonymously() async {
+    try {
+      await _auth.signInAnonymously();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Error: ${e.message}")),
       );
     }
   }
@@ -206,6 +220,62 @@ class LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
+                          SizedBox(height: constraints.maxHeight * 0.02),
+                          ElevatedButton.icon(
+                            onPressed: signInWithGoogle,
+                            icon: const Icon(Icons.account_circle),
+                            label: const Text('Iniciar sesión con Google'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              foregroundColor: Colors.black,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: constraints.maxWidth * 0.15,
+                                vertical: constraints.maxHeight * 0.02,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(90.0),
+                              ),
+                            ),
+                          ),
+                          // Botón para iniciar sesión de manera anónima
+                          ElevatedButton(
+                            onPressed: _loginAnonymously,
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white,
+                              backgroundColor:
+                                  Colors.blue, // Cambia el color si lo deseas
+                              padding: EdgeInsets.symmetric(
+                                horizontal: constraints.maxWidth * 0.25,
+                                vertical: constraints.maxHeight * 0.025,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(90.0),
+                              ),
+                            ),
+                            child: const Text(
+                              'Iniciar sesión como invitado',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ForgotPasswordPage(),
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              '¿Olvidaste tu contraseña?',
+                              style: TextStyle(color: Colors.blue),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -216,7 +286,7 @@ class LoginPageState extends State<LoginPage> {
                         const Text(
                           "¿Aún no tienes una cuenta?",
                           style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 15,
                             color: Colors.white,
                           ),
                         ),
@@ -225,15 +295,15 @@ class LoginPageState extends State<LoginPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Registrate()),
+                                builder: (context) => const Registrate(),
+                              ),
                             );
                           },
                           child: const Text(
                             "Regístrate",
                             style: TextStyle(
-                              fontSize: 17,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Colors.blue,
                             ),
                           ),
                         ),
