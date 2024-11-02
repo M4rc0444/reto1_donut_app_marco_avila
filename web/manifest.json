@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "reto1_donut_app_marco_avila",
     "short_name": "reto1_donut_app_marco_avila",
+=======
+    "name": "flutter_application_1",
+    "short_name": "flutter_application_1",
+>>>>>>> 0681a2e (Programa final)
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

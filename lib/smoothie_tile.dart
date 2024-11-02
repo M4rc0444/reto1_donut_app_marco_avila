@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import 'package:flutter/material.dart';
 
 // class SmoothieTile extends StatelessWidget {
@@ -108,6 +109,8 @@
 //     );
 //   }
 // }
+=======
+>>>>>>> 0681a2e (Programa final)
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 

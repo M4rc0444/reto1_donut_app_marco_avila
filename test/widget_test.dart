@@ -8,6 +8,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+<<<<<<< HEAD
+=======
+import 'package:flutter_application_1/main.dart';
+
+>>>>>>> 0681a2e (Programa final)
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.

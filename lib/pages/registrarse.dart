@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+<<<<<<< HEAD
 import 'package:reto1_donut_app_marco_avila/pages/login_page.dart';
+=======
+import 'package:flutter_application_1/pages/login_page.dart';
+>>>>>>> 0681a2e (Programa final)
 
 class Registrate extends StatefulWidget {
   const Registrate({super.key});
@@ -198,6 +202,7 @@ class _RegistrateState extends State<Registrate> {
                                 vertical: constraints.maxHeight * 0.025,
                               ),
                               shape: RoundedRectangleBorder(
+<<<<<<< HEAD
                                 borderRadius: BorderRadius.circular(90.0),
                               ),
                             ),
@@ -206,6 +211,18 @@ class _RegistrateState extends State<Registrate> {
                               'Registrarse',
                               style: TextStyle(
                                 fontSize: 18,
+=======
+                                borderRadius: BorderRadius.circular(
+                                    constraints.maxWidth * 0.1),
+                              ),
+                            ),
+                            onPressed: _registrar,
+                            child: Text(
+                              'Registrarse',
+                              style: TextStyle(
+                                fontSize: (constraints.maxWidth * 0.010)
+                                    .clamp(12.0, 20.0),
+>>>>>>> 0681a2e (Programa final)
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
                               ),

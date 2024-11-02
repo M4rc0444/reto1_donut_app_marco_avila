@@ -29,8 +29,13 @@ class _UpdatePasswordPageState extends State<UpdatePasswordPage> {
         await user?.updatePassword(_newPasswordController.text);
 
         ScaffoldMessenger.of(context).showSnackBar(
+<<<<<<< HEAD
           SnackBar(
             content: const Text('Contraseña actualizada exitosamente'),
+=======
+          const SnackBar(
+            content: Text('Contraseña actualizada exitosamente'),
+>>>>>>> 0681a2e (Programa final)
             backgroundColor: Colors.green,
           ),
         );

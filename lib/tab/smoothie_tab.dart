@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import 'package:flutter/material.dart';
 // import '../Smoothie_tile.dart';
 
@@ -43,13 +44,23 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../Smoothie_tile.dart';
+=======
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_application_1/smoothie_tile.dart';
+
+>>>>>>> 0681a2e (Programa final)
 
 class SmoothieTab extends StatelessWidget {
   final Function(double) addItem;
   
   SmoothieTab({super.key, required this.addItem});
 
+<<<<<<< HEAD
   // Referencia a la colección de batidos en Firestore
+=======
+  //Aqui se vincula con la base de datos de firebase y se vincula a la tabla batido
+>>>>>>> 0681a2e (Programa final)
   final CollectionReference batidos = 
       FirebaseFirestore.instance.collection('batido');
 

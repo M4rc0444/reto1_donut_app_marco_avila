@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import 'package:flutter/material.dart';
 
 // import '../Burger_tile.dart';
@@ -44,6 +45,12 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../Burger_tile.dart';
+=======
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_application_1/burger_tile.dart';
+
+>>>>>>> 0681a2e (Programa final)
 
 class BurgerTab extends StatelessWidget {
   final Function(double) addItem;

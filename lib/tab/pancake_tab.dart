@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import 'package:flutter/material.dart';
 
 // import '../Pancake_tile.dart';
@@ -44,13 +45,23 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../Pancake_tile.dart';
+=======
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_application_1/pancake_tile.dart';
+
+>>>>>>> 0681a2e (Programa final)
 
 class PancakeTab extends StatelessWidget {
   final Function(double) addItem;
   
   PancakeTab({super.key, required this.addItem});
 
+<<<<<<< HEAD
   // Reference to pancakes collection in Firestore
+=======
+  // Aqui se vincula con la base de datos y hace referencia a panqueques
+>>>>>>> 0681a2e (Programa final)
   final CollectionReference pancakes = 
       FirebaseFirestore.instance.collection('panqueques');
 
