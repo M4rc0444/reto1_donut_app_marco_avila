@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import 'package:flutter/material.dart';
 
 // import '../Donut_tile.dart';
@@ -49,6 +50,11 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../Donut_tile.dart';
+=======
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_application_1/donut_tile.dart';
+>>>>>>> 0681a2e (Programa final)
 
 class DonutTab extends StatelessWidget {
   final Function(double) addItem;
@@ -97,15 +103,25 @@ class DonutTab extends StatelessWidget {
           padding: const EdgeInsets.all(12),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
+<<<<<<< HEAD
+=======
+            childAspectRatio: 1 / 1.5,
+>>>>>>> 0681a2e (Programa final)
           ),
           itemBuilder: (context, index) {
             final DocumentSnapshot document = snapshot.data!.docs[index];
             final data = document.data() as Map<String, dynamic>;
 
             return DonutTile(
+<<<<<<< HEAD
               donutFlavor: data['nombre'] ?? 'Sin nombre',
               donutPrice: data['precio'].toString(),
               donutColor: Colors.brown,
+=======
+              donutName: data['nombre'] ?? 'Sin nombre', // Cambié 'donutFlavor' a 'donutName'
+              donutPrice: data['precio'].toString(),
+              donutColor: getColorFromString(data['color'] ?? 'brown'), // Usar color desde Firestore
+>>>>>>> 0681a2e (Programa final)
               imageName: data['foto'] ?? '',
               addToCart: () {
                 addItem(double.parse(data['precio'].toString()));

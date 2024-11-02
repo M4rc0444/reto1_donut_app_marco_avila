@@ -40,6 +40,17 @@ class DefaultFirebaseOptions {
     }
   }
 
+<<<<<<< HEAD
+=======
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyAv4XdczGamKBxWkN9wrYmBlGC61evFbv4',
+    appId: '1:429902331697:android:9c3d959b05bbe61c773a10',
+    messagingSenderId: '429902331697',
+    projectId: 'tareamoviles8sc',
+    storageBucket: 'tareamoviles8sc.appspot.com',
+  );
+
+>>>>>>> 0681a2e (Programa final)
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyDJV3m42Samwq65G9ZHdl-pZs80JH1tVnw',
     appId: '1:429902331697:web:d030daab85ca29b7773a10',
@@ -50,16 +61,29 @@ class DefaultFirebaseOptions {
     measurementId: 'G-0T45CNPL66',
   );
 
+<<<<<<< HEAD
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAv4XdczGamKBxWkN9wrYmBlGC61evFbv4',
     appId: '1:429902331697:android:3531ee48d7a33a18773a10',
     messagingSenderId: '429902331697',
     projectId: 'tareamoviles8sc',
     storageBucket: 'tareamoviles8sc.appspot.com',
+=======
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDi3_TPwLAAxysNUk5loGeBAezZbPNNLBQ',
+    appId: '1:429902331697:ios:3dea3a3248f558ce773a10',
+    messagingSenderId: '429902331697',
+    projectId: 'tareamoviles8sc',
+    storageBucket: 'tareamoviles8sc.appspot.com',
+    androidClientId: '429902331697-cqavlnhriht1n2v14hci01p1snn9lsvh.apps.googleusercontent.com',
+    iosClientId: '429902331697-j5jn2sasr4ul6q5ot863jq88cj4f9psr.apps.googleusercontent.com',
+    iosBundleId: 'com.example.flutterApplication1',
+>>>>>>> 0681a2e (Programa final)
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDi3_TPwLAAxysNUk5loGeBAezZbPNNLBQ',
+<<<<<<< HEAD
     appId: '1:429902331697:ios:c9da9126a986fdc9773a10',
     messagingSenderId: '429902331697',
     projectId: 'tareamoviles8sc',
@@ -74,15 +98,35 @@ class DefaultFirebaseOptions {
     projectId: 'tareamoviles8sc',
     storageBucket: 'tareamoviles8sc.appspot.com',
     iosBundleId: 'com.example.reto1DonutAppMarcoAvila',
+=======
+    appId: '1:429902331697:ios:3dea3a3248f558ce773a10',
+    messagingSenderId: '429902331697',
+    projectId: 'tareamoviles8sc',
+    storageBucket: 'tareamoviles8sc.appspot.com',
+    androidClientId: '429902331697-cqavlnhriht1n2v14hci01p1snn9lsvh.apps.googleusercontent.com',
+    iosClientId: '429902331697-j5jn2sasr4ul6q5ot863jq88cj4f9psr.apps.googleusercontent.com',
+    iosBundleId: 'com.example.flutterApplication1',
+>>>>>>> 0681a2e (Programa final)
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyDJV3m42Samwq65G9ZHdl-pZs80JH1tVnw',
+<<<<<<< HEAD
     appId: '1:429902331697:web:dbf4c6de1eaec2a3773a10',
+=======
+    appId: '1:429902331697:web:287907a83287f475773a10',
+>>>>>>> 0681a2e (Programa final)
     messagingSenderId: '429902331697',
     projectId: 'tareamoviles8sc',
     authDomain: 'tareamoviles8sc.firebaseapp.com',
     storageBucket: 'tareamoviles8sc.appspot.com',
+<<<<<<< HEAD
     measurementId: 'G-YDK2CK9GYG',
   );
 }
+=======
+    measurementId: 'G-7MFS6TERVY',
+  );
+
+}
+>>>>>>> 0681a2e (Programa final)

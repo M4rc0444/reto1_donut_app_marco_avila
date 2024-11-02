@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 buildscript {
     repositories {
@@ -10,6 +11,8 @@ buildscript {
     }
 }
 
+=======
+>>>>>>> 0681a2e (Programa final)
 allprojects {
     repositories {
         google()

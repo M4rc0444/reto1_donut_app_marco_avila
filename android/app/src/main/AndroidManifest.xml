@@ -1,9 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
 package="com.example.donutapp">
 
  <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="reto1_donut_app_marco_avila"
+=======
+package="reto1_donut_app_marco_avila">
+    <application
+        android:label="reto1_donut_app_marco_avila1"
+>>>>>>> 0681a2e (Programa final)
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

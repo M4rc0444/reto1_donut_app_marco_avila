@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+<<<<<<< HEAD
 import 'package:reto1_donut_app_marco_avila/pages/login_page.dart';
 import 'package:reto1_donut_app_marco_avila/pages/updatepasswordpage.dart';
 import 'package:reto1_donut_app_marco_avila/tab/burger_tab.dart';
@@ -7,12 +8,25 @@ import 'package:reto1_donut_app_marco_avila/tab/donut_tab.dart';
 import 'package:reto1_donut_app_marco_avila/tab/pancake_tab.dart';
 import 'package:reto1_donut_app_marco_avila/tab/pizza_tab.dart';
 import 'package:reto1_donut_app_marco_avila/tab/smoothie_tab.dart';
+=======
+import 'package:flutter_application_1/pages/login_page.dart';
+import 'package:flutter_application_1/pages/updatepasswordpage.dart';
+import 'package:flutter_application_1/tab/burger_tab.dart';
+import 'package:flutter_application_1/tab/donut_tab.dart';
+import 'package:flutter_application_1/tab/pancake_tab.dart';
+import 'package:flutter_application_1/tab/pizza_tab.dart';
+import 'package:flutter_application_1/tab/smoothie_tab.dart';
+>>>>>>> 0681a2e (Programa final)
 
 class HomePage extends StatefulWidget {
   final String? profileImageUrl; // Declara profileImageUrl
 
+<<<<<<< HEAD
   const HomePage({Key? key, this.profileImageUrl})
       : super(key: key); // Constructor
+=======
+  const HomePage({super.key, this.profileImageUrl}); // Constructor
+>>>>>>> 0681a2e (Programa final)
 
   @override
   State<HomePage> createState() => _HomePageState();

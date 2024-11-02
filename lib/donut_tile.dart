@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import 'package:flutter/material.dart';
 
 // class DonutTile extends StatelessWidget {
@@ -105,11 +106,17 @@
 //     );
 //   }
 // }
+=======
+>>>>>>> 0681a2e (Programa final)
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class DonutTile extends StatelessWidget {
+<<<<<<< HEAD
   final String donutFlavor;
+=======
+  final String donutName; // Cambié 'donutFlavor' a 'donutName'
+>>>>>>> 0681a2e (Programa final)
   final String donutPrice;
   final dynamic donutColor;
   final String imageName;
@@ -118,7 +125,11 @@ class DonutTile extends StatelessWidget {
 
   const DonutTile({
     super.key,
+<<<<<<< HEAD
     required this.donutFlavor,
+=======
+    required this.donutName,
+>>>>>>> 0681a2e (Programa final)
     required this.donutPrice,
     this.donutColor,
     required this.imageName,
@@ -149,8 +160,12 @@ class DonutTile extends StatelessWidget {
                       bottomLeft: Radius.circular(borderRadius),
                     ),
                   ),
+<<<<<<< HEAD
                   padding:
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+=======
+                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+>>>>>>> 0681a2e (Programa final)
                   child: Text(
                     '\$$donutPrice',
                     style: TextStyle(
@@ -165,6 +180,7 @@ class DonutTile extends StatelessWidget {
             // Donut picture
             Expanded(
               child: Padding(
+<<<<<<< HEAD
                 padding:
                     const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                 child: CachedNetworkImage(
@@ -172,15 +188,30 @@ class DonutTile extends StatelessWidget {
                   fit: BoxFit.contain,
                   placeholder: (context, url) =>
                       const CircularProgressIndicator(),
+=======
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                child: CachedNetworkImage(
+                  imageUrl: imageName,
+                  fit: BoxFit.contain,
+                  placeholder: (context, url) => const CircularProgressIndicator(),
+>>>>>>> 0681a2e (Programa final)
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
+<<<<<<< HEAD
             // Donut flavor text
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 4),
               child: Text(
                 donutFlavor,
+=======
+            // Donut name text
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 4),
+              child: Text(
+                donutName,
+>>>>>>> 0681a2e (Programa final)
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
@@ -189,7 +220,11 @@ class DonutTile extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
+<<<<<<< HEAD
             const Text('Dunkin\'s'),
+=======
+            const Text('Delicious Donut'), // Cambié el texto aquí
+>>>>>>> 0681a2e (Programa final)
             // Love icon + add button
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),

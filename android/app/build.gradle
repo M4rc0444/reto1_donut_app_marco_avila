@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 plugins {
     id "com.android.application"
     // START: FlutterFire Configuration
@@ -14,6 +15,65 @@ android {
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
     minSdkVersion 24
+=======
+// plugins {
+//     id "com.android.application"
+//     // START: FlutterFire Configuration
+//     id 'com.google.gms.google-services'
+//     // END: FlutterFire Configuration
+//     id "kotlin-android"
+//     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+//     id "dev.flutter.flutter-gradle-plugin"
+// }
+
+// android {
+//     namespace = "com.example.flutter_application_1"
+//     compileSdk = flutter.compileSdkVersion
+//     ndkVersion = flutter.ndkVersion
+     
+
+//     compileOptions {
+//         sourceCompatibility = JavaVersion.VERSION_1_8
+//         targetCompatibility = JavaVersion.VERSION_1_8
+//     }
+
+//     kotlinOptions {
+//         jvmTarget = JavaVersion.VERSION_1_8
+//     }
+
+//   defaultConfig {
+//     applicationId "com.example.flutter_application_1"
+//     minSdkVersion 23
+//     targetSdkVersion 34
+//     versionCode 1
+//     versionName "1.0"
+// }
+
+
+//     buildTypes {
+//         release {
+//             // TODO: Add your own signing config for the release build.
+//             // Signing with the debug keys for now, so `flutter run --release` works.
+//             signingConfig = signingConfigs.debug
+//         }
+//     }
+// }
+
+// flutter {
+//     source = "../.."
+// }
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services'
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.flutter_application_1"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+>>>>>>> 0681a2e (Programa final)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -21,6 +81,7 @@ android {
     }
 
     kotlinOptions {
+<<<<<<< HEAD
         jvmTarget = JavaVersion.VERSION_1_8
     }
 
@@ -33,10 +94,22 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+=======
+        jvmTarget = '1.8'
+    }
+
+    defaultConfig {
+        applicationId "com.example.flutter_application_1"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+>>>>>>> 0681a2e (Programa final)
     }
 
     buildTypes {
         release {
+<<<<<<< HEAD
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.debug
@@ -47,3 +120,9 @@ android {
 flutter {
     source = "../.."
 }
+=======
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+>>>>>>> 0681a2e (Programa final)

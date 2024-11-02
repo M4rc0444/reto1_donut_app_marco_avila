@@ -9,7 +9,11 @@
       "client_info": {
         "mobilesdk_app_id": "1:429902331697:android:3531ee48d7a33a18773a10",
         "android_client_info": {
+<<<<<<< HEAD
           "package_name": "com.example.donutapp"
+=======
+          "package_name": "com.example.flutter_application_1"
+>>>>>>> 0681a2e (Programa final)
         }
       },
       "oauth_client": [
@@ -48,6 +52,53 @@
           ]
         }
       }
+<<<<<<< HEAD
+=======
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429902331697:android:9c3d959b05bbe61c773a10",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "429902331697-cqavlnhriht1n2v14hci01p1snn9lsvh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_application_1",
+            "certificate_hash": "f015d860b7a54030db3e6d2b17bc5a8f4e744fa0"
+          }
+        },
+        {
+          "client_id": "429902331697-hllomkdoq4behq89cj3jm2f4c00nmije.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv4XdczGamKBxWkN9wrYmBlGC61evFbv4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "429902331697-hllomkdoq4behq89cj3jm2f4c00nmije.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "429902331697-u9etok7b7h5b0q16172vtsoa740tql2v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.reto1DonutAppMarcoAvila"
+              }
+            }
+          ]
+        }
+      }
+>>>>>>> 0681a2e (Programa final)
     }
   ],
   "configuration_version": "1"

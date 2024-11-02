@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"flutter":{"platforms":{"android":{"default":{"projectId":"tareamoviles8sc","appId":"1:429902331697:android:3531ee48d7a33a18773a10","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"tareamoviles8sc","configurations":{"android":"1:429902331697:android:3531ee48d7a33a18773a10","ios":"1:429902331697:ios:c9da9126a986fdc9773a10","macos":"1:429902331697:ios:c9da9126a986fdc9773a10","web":"1:429902331697:web:d030daab85ca29b7773a10","windows":"1:429902331697:web:dbf4c6de1eaec2a3773a10"}}}}}}
+=======
+{"flutter":{"platforms":{"android":{"default":{"projectId":"tareamoviles8sc","appId":"1:429902331697:android:9c3d959b05bbe61c773a10","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"tareamoviles8sc","configurations":{"android":"1:429902331697:android:9c3d959b05bbe61c773a10","ios":"1:429902331697:ios:3dea3a3248f558ce773a10","macos":"1:429902331697:ios:3dea3a3248f558ce773a10","web":"1:429902331697:web:d030daab85ca29b7773a10","windows":"1:429902331697:web:287907a83287f475773a10"}}}}}}
+>>>>>>> 0681a2e (Programa final)

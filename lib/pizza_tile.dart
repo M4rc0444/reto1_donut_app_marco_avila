@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import 'package:flutter/material.dart';
 
 // class PizzaTile extends StatelessWidget {
@@ -105,6 +106,8 @@
 //     );
 //   }
 // }
+=======
+>>>>>>> 0681a2e (Programa final)
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -149,7 +152,12 @@ class PizzaTile extends StatelessWidget {
                       bottomLeft: Radius.circular(borderRadius),
                     ),
                   ),
+<<<<<<< HEAD
                   padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+=======
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+>>>>>>> 0681a2e (Programa final)
                   child: Text(
                     '\$$pizzaPrice',
                     style: TextStyle(
@@ -164,11 +172,20 @@ class PizzaTile extends StatelessWidget {
             // Pizza picture
             Expanded(
               child: Padding(
+<<<<<<< HEAD
                 padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                 child: CachedNetworkImage(
                   imageUrl: imageName,
                   fit: BoxFit.contain,
                   placeholder: (context, url) => 
+=======
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                child: CachedNetworkImage(
+                  imageUrl: imageName,
+                  fit: BoxFit.contain,
+                  placeholder: (context, url) =>
+>>>>>>> 0681a2e (Programa final)
                       const CircularProgressIndicator(),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
@@ -217,4 +234,8 @@ class PizzaTile extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0681a2e (Programa final)

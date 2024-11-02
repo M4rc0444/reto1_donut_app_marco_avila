@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import 'package:flutter/material.dart';
 // import '../Pizza_tile.dart';
 
@@ -43,13 +44,23 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../Pizza_tile.dart';
+=======
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_application_1/pizza_tile.dart';
+
+>>>>>>> 0681a2e (Programa final)
 
 class PizzaTab extends StatelessWidget {
   final Function(double) addItem;
 
   PizzaTab({super.key, required this.addItem});
 
+<<<<<<< HEAD
   // Reference to pizzas collection in Firestore
+=======
+  // Aqui se vincula con la base de datos de firebase y se vincula a la tabla pizza
+>>>>>>> 0681a2e (Programa final)
   final CollectionReference pizzas =
       FirebaseFirestore.instance.collection('pizza');
 

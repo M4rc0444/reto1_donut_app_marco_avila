@@ -1,6 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:reto1_donut_app_marco_avila/firebase_options.dart';
+=======
+import 'package:flutter_application_1/firebase_options.dart';
+>>>>>>> 0681a2e (Programa final)
 import 'pages/login_page.dart';
 
 Future<void> main() async {
